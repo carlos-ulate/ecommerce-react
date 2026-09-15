@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Nexus Forge Gaming - Banner Principal</title>
+  <desc>Banner de alta resolución 1920x1080 con estética cyberpunk para Nexus Forge Gaming</desc>
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#020818;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#050f2e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0a0520;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:0.9"/>
+      <stop offset="50%" style="stop-color:#7b2ff7;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff3366;stop-opacity:0.9"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:1"/>
+      <stop offset="40%" style="stop-color:#a855f7;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff3366;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="glowLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:0"/>
+      <stop offset="30%" style="stop-color:#00f5ff;stop-opacity:0.8"/>
+      <stop offset="70%" style="stop-color:#7b2ff7;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#ff3366;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#7b2ff7;stop-opacity:0.1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="coreGlow">
+      <feGaussianBlur stdDeviation="40" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad)"/>
+
+  <!-- Grid lines horizontal -->
+  <g opacity="0.08" stroke="#00f5ff" stroke-width="0.5">
+    <line x1="0" y1="108" x2="1920" y2="108"/>
+    <line x1="0" y1="216" x2="1920" y2="216"/>
+    <line x1="0" y1="324" x2="1920" y2="324"/>
+    <line x1="0" y1="432" x2="1920" y2="432"/>
+    <line x1="0" y1="540" x2="1920" y2="540"/>
+    <line x1="0" y1="648" x2="1920" y2="648"/>
+    <line x1="0" y1="756" x2="1920" y2="756"/>
+    <line x1="0" y1="864" x2="1920" y2="864"/>
+    <line x1="0" y1="972" x2="1920" y2="972"/>
+  </g>
+  <!-- Grid lines vertical -->
+  <g opacity="0.08" stroke="#7b2ff7" stroke-width="0.5">
+    <line x1="192" y1="0" x2="192" y2="1080"/>
+    <line x1="384" y1="0" x2="384" y2="1080"/>
+    <line x1="576" y1="0" x2="576" y2="1080"/>
+    <line x1="768" y1="0" x2="768" y2="1080"/>
+    <line x1="960" y1="0" x2="960" y2="1080"/>
+    <line x1="1152" y1="0" x2="1152" y2="1080"/>
+    <line x1="1344" y1="0" x2="1344" y2="1080"/>
+    <line x1="1536" y1="0" x2="1536" y2="1080"/>
+    <line x1="1728" y1="0" x2="1728" y2="1080"/>
+  </g>
+
+  <!-- Hexagonal pattern background left -->
+  <g opacity="0.12" stroke="#00f5ff" stroke-width="0.8" fill="none">
+    <polygon points="80,200 120,177 160,200 160,246 120,269 80,246"/>
+    <polygon points="160,200 200,177 240,200 240,246 200,269 160,246"/>
+    <polygon points="240,200 280,177 320,200 320,246 280,269 240,246"/>
+    <polygon points="80,292 120,269 160,292 160,338 120,361 80,338"/>
+    <polygon points="160,292 200,269 240,292 240,338 200,361 160,338"/>
+    <polygon points="240,292 280,269 320,292 320,338 280,361 240,338"/>
+    <polygon points="80,384 120,361 160,384 160,430 120,453 80,430"/>
+    <polygon points="160,384 200,361 240,384 240,430 200,453 160,430"/>
+    <polygon points="240,384 280,361 320,384 320,430 280,453 240,430"/>
+    <polygon points="120,246 160,223 200,246 200,292 160,315 120,292"/>
+    <polygon points="200,246 240,223 280,246 280,292 240,315 200,292"/>
+    <polygon points="120,338 160,315 200,338 200,384 160,407 120,384"/>
+    <polygon points="200,338 240,315 280,338 280,384 240,407 200,384"/>
+    <polygon points="80,476 120,453 160,476 160,522 120,545 80,522"/>
+    <polygon points="160,476 200,453 240,476 240,522 200,545 160,522"/>
+    <polygon points="120,430 160,407 200,430 200,476 160,499 120,476"/>
+    <polygon points="200,430 240,407 280,430 280,476 240,499 200,476"/>
+    <polygon points="280,430 320,407 360,430 360,476 320,499 280,476"/>
+    <polygon points="80,568 120,545 160,568 160,614 120,637 80,614"/>
+    <polygon points="160,568 200,545 240,568 240,614 200,637 160,614"/>
+    <polygon points="120,522 160,499 200,522 200,568 160,591 120,568"/>
+    <polygon points="200,522 240,499 280,522 280,568 240,591 200,568"/>
+  </g>
+
+  <!-- Hexagonal pattern background right -->
+  <g opacity="0.12" stroke="#ff3366" stroke-width="0.8" fill="none">
+    <polygon points="1680,200 1720,177 1760,200 1760,246 1720,269 1680,246"/>
+    <polygon points="1760,200 1800,177 1840,200 1840,246 1800,269 1760,246"/>
+    <polygon points="1600,200 1640,177 1680,200 1680,246 1640,269 1600,246"/>
+    <polygon points="1680,292 1720,269 1760,292 1760,338 1720,361 1680,338"/>
+    <polygon points="1760,292 1800,269 1840,292 1840,338 1800,361 1760,338"/>
+    <polygon points="1600,292 1640,269 1680,292 1680,338 1640,361 1600,338"/>
+    <polygon points="1720,246 1760,223 1800,246 1800,292 1760,315 1720,292"/>
+    <polygon points="1640,246 1680,223 1720,246 1720,292 1680,315 1640,292"/>
+    <polygon points="1680,384 1720,361 1760,384 1760,430 1720,453 1680,430"/>
+    <polygon points="1760,384 1800,361 1840,384 1840,430 1800,453 1760,430"/>
+    <polygon points="1600,384 1640,361 1680,384 1680,430 1640,453 1600,430"/>
+    <polygon points="1720,338 1760,315 1800,338 1800,384 1760,407 1720,384"/>
+    <polygon points="1640,338 1680,315 1720,338 1720,384 1680,407 1640,384"/>
+    <polygon points="1680,476 1720,453 1760,476 1760,522 1720,545 1680,522"/>
+    <polygon points="1760,476 1800,453 1840,476 1840,522 1800,545 1760,522"/>
+    <polygon points="1720,430 1760,407 1800,430 1800,476 1760,499 1720,476"/>
+    <polygon points="1640,430 1680,407 1720,430 1720,476 1680,499 1640,476"/>
+    <polygon points="1600,476 1640,453 1680,476 1680,522 1640,545 1600,522"/>
+    <polygon points="1720,522 1760,499 1800,522 1800,568 1760,591 1720,568"/>
+    <polygon points="1640,522 1680,499 1720,522 1720,568 1680,591 1640,568"/>
+    <polygon points="1680,568 1720,545 1760,568 1760,614 1720,637 1680,614"/>
+  </g>
+
+  <!-- Central energy core glow -->
+  <circle cx="960" cy="480" r="380" fill="#7b2ff7" opacity="0.04" filter="url(#coreGlow)"/>
+  <circle cx="960" cy="480" r="250" fill="#00f5ff" opacity="0.05" filter="url(#coreGlow)"/>
+  <circle cx="960" cy="480" r="150" fill="#ff3366" opacity="0.04" filter="url(#coreGlow)"/>
+
+  <!-- Outer ring -->
+  <circle cx="960" cy="480" r="340" fill="none" stroke="#00f5ff" stroke-width="0.8" opacity="0.2"/>
+  <circle cx="960" cy="480" r="342" fill="none" stroke="#7b2ff7" stroke-width="0.4" opacity="0.3" stroke-dasharray="30 10"/>
+
+  <!-- Hexagon rings -->
+  <g transform="translate(960,480)">
+    <polygon points="0,-310 268,-155 268,155 0,310 -268,155 -268,-155" fill="none" stroke="#00f5ff" stroke-width="0.6" opacity="0.15"/>
+    <polygon points="0,-270 234,-135 234,135 0,270 -234,135 -234,-135" fill="none" stroke="#7b2ff7" stroke-width="0.6" opacity="0.15" transform="rotate(30)"/>
+    <polygon points="0,-230 199,-115 199,115 0,230 -199,115 -199,-115" fill="none" stroke="#ff3366" stroke-width="0.6" opacity="0.12"/>
+  </g>
+
+  <!-- Tech circuit lines left -->
+  <g opacity="0.5" stroke="#00f5ff" stroke-width="1.2" fill="none">
+    <path d="M620,480 L480,480 L480,380 L400,380" filter="url(#glow)"/>
+    <path d="M620,480 L480,480 L480,580 L400,580" filter="url(#glow)"/>
+    <path d="M480,480 L380,480" filter="url(#glow)"/>
+    <path d="M480,380 L380,380 L380,340" filter="url(#glow)"/>
+    <path d="M480,580 L380,580 L380,620" filter="url(#glow)"/>
+    <circle cx="480" cy="480" r="5" fill="#00f5ff"/>
+    <circle cx="480" cy="380" r="4" fill="#00f5ff" opacity="0.8"/>
+    <circle cx="480" cy="580" r="4" fill="#00f5ff" opacity="0.8"/>
+    <circle cx="400" cy="380" r="3" fill="#00f5ff" opacity="0.6"/>
+    <circle cx="400" cy="580" r="3" fill="#00f5ff" opacity="0.6"/>
+    <circle cx="380" cy="340" r="3" fill="#00f5ff" opacity="0.5"/>
+    <circle cx="380" cy="620" r="3" fill="#00f5ff" opacity="0.5"/>
+    <rect x="330" y="330" width="50" height="20" rx="3" fill="#00f5ff" opacity="0.1" stroke="#00f5ff" stroke-width="0.6"/>
+    <rect x="330" y="610" width="50" height="20" rx="3" fill="#00f5ff" opacity="0.1" stroke="#00f5ff" stroke-width="0.6"/>
+    <rect x="360" y="470" width="20" height="20" rx="10" fill="#00f5ff" opacity="0.15" stroke="#00f5ff" stroke-width="0.6"/>
+  </g>
+
+  <!-- Tech circuit lines right -->
+  <g opacity="0.5" stroke="#ff3366" stroke-width="1.2" fill="none">
+    <path d="M1300,480 L1440,480 L1440,380 L1520,380" filter="url(#glow)"/>
+    <path d="M1300,480 L1440,480 L1440,580 L1520,580" filter="url(#glow)"/>
+    <path d="M1440,480 L1540,480" filter="url(#glow)"/>
+    <path d="M1440,380 L1540,380 L1540,340" filter="url(#glow)"/>
+    <path d="M1440,580 L1540,580 L1540,620" filter="url(#glow)"/>
+    <circle cx="1440" cy="480" r="5" fill="#ff3366"/>
+    <circle cx="1440" cy="380" r="4" fill="#ff3366" opacity="0.8"/>
+    <circle cx="1440" cy="580" r="4" fill="#ff3366" opacity="0.8"/>
+    <circle cx="1520" cy="380" r="3" fill="#ff3366" opacity="0.6"/>
+    <circle cx="1520" cy="580" r="3" fill="#ff3366" opacity="0.6"/>
+    <circle cx="1540" cy="340" r="3" fill="#ff3366" opacity="0.5"/>
+    <circle cx="1540" cy="620" r="3" fill="#ff3366" opacity="0.5"/>
+    <rect x="1540" y="330" width="50" height="20" rx="3" fill="#ff3366" opacity="0.1" stroke="#ff3366" stroke-width="0.6"/>
+    <rect x="1540" y="610" width="50" height="20" rx="3" fill="#ff3366" opacity="0.1" stroke="#ff3366" stroke-width="0.6"/>
+    <rect x="1540" y="470" width="20" height="20" rx="10" fill="#ff3366" opacity="0.15" stroke="#ff3366" stroke-width="0.6"/>
+  </g>
+
+  <!-- Central shield / logo shape -->
+  <g transform="translate(960,480)">
+    <path d="M0,-200 L140,-100 L140,60 L0,160 L-140,60 L-140,-100 Z" fill="url(#shieldGrad)" stroke="url(#coreGrad)" stroke-width="1.5" opacity="0.9" filter="url(#softGlow)"/>
+    <path d="M0,-170 L116,-85 L116,50 L0,136 L-116,50 L-116,-85 Z" fill="#020818" fill-opacity="0.85" stroke="url(#coreGrad)" stroke-width="0.8"/>
+    <g fill="none" stroke="url(#coreGrad)" stroke-width="8" stroke-linecap="square" filter="url(#glow)">
+      <line x1="-65" y1="60" x2="-65" y2="-60"/>
+      <line x1="-65" y1="-60" x2="65" y2="60"/>
+      <line x1="65" y1="60" x2="65" y2="-60"/>
+    </g>
+    <line x1="-100" y1="20" x2="-116" y2="20" stroke="#00f5ff" stroke-width="1.5" opacity="0.6"/>
+    <line x1="100" y1="20" x2="116" y2="20" stroke="#ff3366" stroke-width="1.5" opacity="0.6"/>
+    <line x1="-60" y1="-130" x2="60" y2="-130" stroke="#7b2ff7" stroke-width="1" opacity="0.5"/>
+    <path d="M-80,-160 L-90,-170 L-60,-170" fill="none" stroke="#00f5ff" stroke-width="1.2" opacity="0.7"/>
+    <path d="M80,-160 L90,-170 L60,-170" fill="none" stroke="#00f5ff" stroke-width="1.2" opacity="0.7"/>
+    <path d="M-126,40 L-140,40 L-140,20" fill="none" stroke="#7b2ff7" stroke-width="1.2" opacity="0.7"/>
+    <path d="M126,40 L140,40 L140,20" fill="none" stroke="#7b2ff7" stroke-width="1.2" opacity="0.7"/>
+    <path d="M-40,148 L-60,160 L0,160" fill="none" stroke="#ff3366" stroke-width="1.2" opacity="0.7"/>
+    <path d="M40,148 L60,160 L0,160" fill="none" stroke="#ff3366" stroke-width="1.2" opacity="0.7"/>
+    <circle cx="0" cy="-200" r="4" fill="#00f5ff" filter="url(#glow)"/>
+    <circle cx="140" cy="-100" r="4" fill="#7b2ff7" filter="url(#glow)"/>
+    <circle cx="140" cy="60" r="4" fill="#7b2ff7" filter="url(#glow)"/>
+    <circle cx="0" cy="160" r="4" fill="#ff3366" filter="url(#glow)"/>
+    <circle cx="-140" cy="60" r="4" fill="#ff3366" filter="url(#glow)"/>
+    <circle cx="-140" cy="-100" r="4" fill="#00f5ff" filter="url(#glow)"/>
+  </g>
+
+  <!-- Horizontal energy line -->
+  <rect x="0" y="477" width="1920" height="1" fill="url(#glowLine)" opacity="0.4"/>
+  <rect x="0" y="483" width="1920" height="1" fill="url(#glowLine)" opacity="0.2"/>
+
+  <!-- Main title -->
+  <text x="960" y="740" font-family="'Arial Black', 'Impact', sans-serif" font-size="148" font-weight="900" fill="url(#textGrad)" text-anchor="middle" letter-spacing="40" filter="url(#softGlow)" opacity="0.95">NEXUS</text>
+  <text x="960" y="840" font-family="'Arial Black', 'Impact', sans-serif" font-size="88" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="30" opacity="0.85">FORGE</text>
+  <text x="960" y="900" font-family="'Arial', sans-serif" font-size="32" font-weight="400" fill="#00f5ff" text-anchor="middle" letter-spacing="18" opacity="0.7">GAMING</text>
+  <text x="960" y="960" font-family="'Arial', sans-serif" font-size="20" font-weight="400" fill="#7b2ff7" text-anchor="middle" letter-spacing="6" opacity="0.6">FORGE YOUR DESTINY — CONQUER THE NEXUS</text>
+
+  <!-- Decorative bars -->
+  <rect x="0" y="0" width="1920" height="3" fill="url(#glowLine)" opacity="0.8"/>
+  <rect x="0" y="1077" width="1920" height="3" fill="url(#glowLine)" opacity="0.8"/>
+
+  <!-- Corner brackets -->
+  <path d="M40,40 L40,100 M40,40 L100,40" fill="none" stroke="#00f5ff" stroke-width="2" opacity="0.6"/>
+  <path d="M1880,40 L1880,100 M1880,40 L1820,40" fill="none" stroke="#00f5ff" stroke-width="2" opacity="0.6"/>
+  <path d="M40,1040 L40,980 M40,1040 L100,1040" fill="none" stroke="#ff3366" stroke-width="2" opacity="0.6"/>
+  <path d="M1880,1040 L1880,980 M1880,1040 L1820,1040" fill="none" stroke="#ff3366" stroke-width="2" opacity="0.6"/>
+
+  <!-- Floating particles -->
+  <circle cx="200" cy="150" r="2" fill="#00f5ff" opacity="0.5"/>
+  <circle cx="350" cy="700" r="1.5" fill="#7b2ff7" opacity="0.6"/>
+  <circle cx="120" cy="850" r="2.5" fill="#00f5ff" opacity="0.3"/>
+  <circle cx="450" cy="200" r="1.5" fill="#ff3366" opacity="0.4"/>
+  <circle cx="180" cy="500" r="1" fill="#ffffff" opacity="0.4"/>
+  <circle cx="300" cy="920" r="2" fill="#7b2ff7" opacity="0.5"/>
+  <circle cx="510" cy="780" r="1.5" fill="#00f5ff" opacity="0.35"/>
+  <circle cx="1720" cy="150" r="2" fill="#ff3366" opacity="0.5"/>
+  <circle cx="1570" cy="700" r="1.5" fill="#7b2ff7" opacity="0.6"/>
+  <circle cx="1800" cy="850" r="2.5" fill="#ff3366" opacity="0.3"/>
+  <circle cx="1470" cy="200" r="1.5" fill="#00f5ff" opacity="0.4"/>
+  <circle cx="1740" cy="500" r="1" fill="#ffffff" opacity="0.4"/>
+  <circle cx="1620" cy="920" r="2" fill="#7b2ff7" opacity="0.5"/>
+  <circle cx="1410" cy="780" r="1.5" fill="#ff3366" opacity="0.35"/>
+</svg>
