@@ -1,92 +1,206 @@
+import { useForm } from "react-hook-form";
 import "./AdminProduct.css"
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
+import ProductRow from "../../../components/product-row/ProductRow";
+
+const URL_BASE = 'https://6aab23a5ea0e22daa6dbcf5b.mockapi.io'
 
 export default function AdminProduct() {
 
-    function handleSubmit(event) {
+    const [products, setProducts] = useState([]);
+    const { register, handleSubmit } = useForm();
 
-        event.preventDefault();
+    useEffect(() => {
 
-        const el = event.target.elements;
+        obtenerProductos();
+    }, [])
 
-        console.log(el.price.value);
-        console.log(el.name.value)
+    // Obtener productos desde el backend
+    async function obtenerProductos() {
 
+        // Realizar una llamada al servidor para obtener los productos
+        const response = await axios.get(`${URL_BASE}/products`)
+        // Una vez obtenidos, actualizar el estado de los productos a través de su función para actualizar setProducts.
+        const productosObtenidos = response.data
 
+        setProducts(productosObtenidos)
     }
 
 
+
+    //Parcialmente terminado: 
+    // ✅ Crear producto y guardar funcionando
+    //❌ Actualizar producto
+    async function envioFormulario(data) {
+        try {
+
+
+            const newProduct = data;
+            newProduct.createdAt = new Date().toISOString()
+
+            const response = await axios.post(`${URL_BASE}/products`, newProduct)
+
+            Swal.fire({
+                title: "Producto Creado",
+                text: `El producto ${newProduct.name} fue creado exitosamente`,
+                icon: "success"
+
+            })
+
+            obtenerProductos()
+
+        } catch (error) {
+
+            console.log(error)
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Hubo un problema al cargar el producto"
+            })
+        }
+    }
+
+
+    async function handleDelete(id) {
+
+        try {
+            const result = await Swal.fire({
+                icon: "warning",
+                title: "Estas seguro?",
+                text: "No podras revertir esto.",
+                showCancelButton: true,
+                confirmButtonText: "Si, Eliminar",
+                cancelButtonText: "Cancelar"
+            })
+
+            if (!result.isConfirmed) {
+                return;
+
+            }
+
+            await axios.delete(`${URL_BASE}/products/${id}`);
+            Swal.fire({
+                title: "Producto Elimidado",
+                text: `El producto con id ${id} fue eliminado exitosamente `,
+                icon: "success"
+
+            });
+
+            obtenerProductos()
+
+        } catch (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Hubo un problema al eliminar el producto."
+            })
+
+        }
+    }
+
+    function handleEdit(id) {
+        console.log(`Editing product with ID ${id}`)
+    }
 
     return (
 
         <div className="admin-container">
             <div className="form-container">
-                <form>
-                    <form className="contact-form  registro-form" method="post">
-                        <label htmlFor="nombre">Nombre del Producto</label>
-                        <br />
-                        <input
-                            type="text"
-                            id="nombre"
-                            name="nombre"
-                            required=""
 
-                        />
-                        <br />
-                        <label htmlFor="apellido">Descripcion del Producto</label>
-                        <br />
-                        <input
-                            type="text"
-                            id="descripcion"
-                            name="descripcion"
-                            required=""
+                <form className="contact-form  registro-form" onSubmit={handleSubmit(envioFormulario)}>
+                    <div>
+                        <h2>Agregar Nuevo Producto</h2>
+                    </div>
+                    <label htmlFor="name">Nombre del Producto</label>
+                    <br />
+                    <input
 
-                        />
-                        <br />
-                        <label htmlFor="precio">Precio</label>
-                        <br />
-                        <input
-                            type="number"
-                            id="precio"
-                            name="precio"
-                            required=""
+                        type="text"
+                        id="name"
+                        {...register("name")}
+                        required=""
 
-                        />
-                        <br />
-                        <label htmlFor="fecha">Fecha de Ingreso</label>
-                        <br />
-                        <input
-                            type="date"
-                            id="fecha"
-                            name="fecha"
-                            requeried=""
+                    />
+                    <br />
+                    <label htmlFor="description">Descripcion del Producto</label>
+                    <br />
+                    <input
 
+                        type="text"
+                        id="description"
+                        {...register("description")}
+                        required=""
 
-                        />
-                        <br />
-                        <label htmlFor="files">Seleccionar Producto</label>
-                        <br />
-                        <input
-                            type="file"
-                            id="files"
-                            name="files"
-                            requeried=""
+                    />
+                    <br />
+                    <label htmlFor="price">Precio</label>
+                    <br />
+                    <input
 
-                        />
-                        <br />
-                        <label htmlFor="stock">Stock:</label>
-                        <br />
-                        <input type="number" id="stock" name="stock" required="" />
-                        <br />
+                        type="number"
+                        id="price"
+                        {...register("price", { valueAsNumber: true })}
+                        required=""
 
-                        <br />
-                        <br />
-                        <button type="submit" className="button-contact">
-                            Agregar Producto
-                        </button>
-                    </form>
+                    />
+                    <br />
+                    <label htmlFor="desc">Categoria</label><br></br>
+                    <select  {...register("category")}
+                        id=""
+                        required="">
 
 
+                        <option value="">Selecciona una categoria</option>
+                        <option value="periferico">Headset</option>
+                        <option value="camara">Camara</option>
+                        <option value="periferico">Teclado</option>
+                        <option value="monitor">Monitor</option>
+                        <option value="grafica">Tarjeta Grafica</option>
+                        <option value="periferico">Audifonos</option>
+                        <option value="case">Case</option>
+                        <option value="enfriamiento">Enfriamiento Liquido</option>
+                        <option value="ram">Memoria RAM</option>
+                    </select><br></br>
+                    {/* <label htmlFor="createdAt">Fecha de Ingreso</label>
+                    <br />
+                    <input
 
+                        type="date"
+                        id="createdAt"
+                        {...register("createdAt" , {valueAsDate: true} )}
+                        requeried=""
+
+                    /> */}
+                    <br />
+                    <label htmlFor="image">Cargar Imagen/Producto</label>
+                    <br />
+                    <input
+
+                        type="url"
+                        {...register("image")}
+                        id="image"
+                        requeried=""
+
+                    />
+                    <br />
+                    <label htmlFor="stock">Stock:</label>
+                    <br />
+                    <input
+
+                        type="number"
+                        id="stock"
+                        {...register("stock", { valueAsNumber: true })}
+                        required="" />
+
+                    <br />
+
+                    <br />
+                    <br />
+                    <button type="submit" className="button-contact">
+                        Agregar Producto
+                    </button>
                 </form>
 
 
@@ -99,173 +213,36 @@ export default function AdminProduct() {
                 </div>
                 <div className="adm-prod">
                     <table className="adm-table">
-                        <tbody>
+                        <thead>
                             <tr>
                                 <th>Foto</th>
                                 <th>Nombre</th>
+                                <th>Descripcion</th>
                                 <th>Fecha de Ingreso</th>
                                 <th>Precio</th>
+                                <th>Stock</th>
                                 <th>Agregar o eliminar</th>
                             </tr>
-                            <tr>
-                                <td>
-                                    <img src="./src/assets/images/products/case.webp" alt="case" />
-                                </td>
-                                <td>XYZ Aurorax 50 Negro XYZ-SA-1020</td>
-                                <td> 6/8/2026</td>
-                                <td>$60</td>
-                                <td>
-                                    <button className="btn btn-success">
-                                        <i className="fa-solid fa-pen" />
-                                    </button>
-                                    <button className="btn btn-danger">
-                                        <i className="fa-solid fa-trash-can" />
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img
-                                        src="./src/assets/images/products/enfriamiento.jpg"
-                                        alt="enfriamiento"
-                                    />
-                                </td>
-                                <td>Darkflash Nebula Series DN3600D</td>
-                                <td>6/8/2026</td>
-                                <td>$80</td>
-                                <td>
-                                    <button className="btn btn-success">
-                                        <i className="fa-solid fa-pen" />
-                                    </button>
-                                    <button className="btn btn-danger">
-                                        <i className="fa-solid fa-trash-can" />
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img
-                                        src="/assets/images/products/logitech_camara.jpg"
-                                        alt="camara"
-                                    />
-                                </td>
-                                <td>Logitech MX Brio</td>
-                                <td>6/8/2026</td>
-                                <td>$169.99</td>
-                                <td>
-                                    <button className="btn btn-success">
-                                        <i className="fa-solid fa-pen" />
-                                    </button>
-                                    <button className="btn btn-danger">
-                                        <i className="fa-solid fa-trash-can" />
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="/assets/images/products/MSI _5050.webp" alt="msi_5050" />
-                                </td>
-                                <td>MSI GeForce RTX 5050 8GB Gaming OC</td>
-                                <td>6/8/2026</td>
-                                <td>$350</td>
-                                <td>
-                                    <button className="btn btn-success">
-                                        <i className="fa-solid fa-pen" />
-                                    </button>
-                                    <button className="btn btn-danger">
-                                        <i className="fa-solid fa-trash-can" />
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img
-                                        src="/assets/images/products/nvidia_5070ti.jpg"
-                                        alt="asus_5070ti"
-                                    />
-                                </td>
-                                <td>Asus Tuf GeForce 5070 TI 16GB Gaming</td>
-                                <td>6/8/2026</td>
-                                <td>$1000</td>
-                                <td>
-                                    <button className="btn btn-success">
-                                        <i className="fa-solid fa-pen" />
-                                    </button>
-                                    <button className="btn btn-danger">
-                                        <i className="fa-solid fa-trash-can" />
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="/assets/images/products/ram.webp" alt="ram" />
-                                </td>
-                                <td>Adata XPG Armax RGB 16GB DDR5 5600</td>
-                                <td>6/8/2026</td>
-                                <td>$75</td>
-                                <td>
-                                    <button className="btn btn-success">
-                                        <i className="fa-solid fa-pen" />
-                                    </button>
-                                    <button className="btn btn-danger">
-                                        <i className="fa-solid fa-trash-can" />
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img
-                                        src="/assets/images/products/redragon_keyboard.jpg"
-                                        alt="teclado"
-                                    />
-                                </td>
-                                <td>Redragon K552W Kumara RGB</td>
-                                <td>6/8/2026</td>
-                                <td>$35</td>
-                                <td>
-                                    <button className="btn btn-success">
-                                        <i className="fa-solid fa-pen" />
-                                    </button>
-                                    <button className="btn btn-danger">
-                                        <i className="fa-solid fa-trash-can" />
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="/assets/images/products/samsung_oled.jpg" alt="monitor" />
-                                </td>
-                                <td>Samsung Odyssey G8 27″ Oled 4k 240Hz</td>
-                                <td>6/8/2026</td>
-                                <td>$1299.99</td>
-                                <td>
-                                    <button className="btn btn-success">
-                                        <i className="fa-solid fa-pen" />
-                                    </button>
-                                    <button className="btn btn-danger">
-                                        <i className="fa-solid fa-trash-can" />
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img
-                                        src="/assets/images/products/razer_headset.avif"
-                                        alt="audifonos"
-                                    />
-                                </td>
-                                <td>Razer BlackShark V3 Pro Wireless ANC Blanco</td>
-                                <td>6/8/2026</td>
-                                <td>$230</td>
-                                <td>
-                                    <button className="btn btn-success">
-                                        <i className="fa-solid fa-pen" />
-                                    </button>
-                                    <button className="btn btn-danger">
-                                        <i className="fa-solid fa-trash-can" />
-                                    </button>
-                                </td>
-                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            {
+
+                                //se puede usar tambien si en el return   products.map((producto) =><ProductRow key={producto.id} prod={producto} />)
+                                products.map((producto) => {
+
+                                    return <ProductRow key={producto.id}
+                                        prod={producto}
+                                        handleEdit={handleEdit}
+                                        handleDelete={handleDelete} />
+                                })
+
+
+                            }
+
+
+
                         </tbody>
                     </table>
                 </div>

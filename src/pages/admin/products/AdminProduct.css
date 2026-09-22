@@ -5,4 +5,7 @@
     text-align: center;
     align-items: center;
 
+    form {
+        box-shadow: 5px 5px 15px rgba(47, 98, 102, 0.8);
+    }
 }

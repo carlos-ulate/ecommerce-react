@@ -8,7 +8,8 @@ import Contact from './pages/contact/Contact'
 import Home from './pages/home/Home'
 import AdminProduct from './pages/admin/products/AdminProduct'
 import Register from './pages/register/Register'
-import Products from './pages/contact/products/Products'
+import Products from './pages/products/Products'
+import ProductDetail from './pages/products/productDetail/ProductDetail'
 
 
 function App() {
@@ -26,11 +27,11 @@ function App() {
 
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
+          <Route path='/about' element={<About />} />
           <Route path="/admin/products" element={<AdminProduct />} />
           <Route path="/register" element={<Register />} />
           <Route path='/products' element={<Products />} />
-
+          <Route path='/products/productDetail' element={<ProductDetail />} />
         </Routes>
 
 

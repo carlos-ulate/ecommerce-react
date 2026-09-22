@@ -2,6 +2,8 @@ import "./Header.css"
 import PageLogo from "../../assets/images/nexus_nav_log.png"
 import UserLogo from "../../assets/images/Portrait_Placeholder.png"
 import { NavLink } from "react-router"
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export default function Header() {
     return (
@@ -71,7 +73,7 @@ export default function Header() {
                     {/*div para cart (carrito)*/}
                     <div className="cart-shop">
                         <a href="#" className="cart">
-                            <i className="fas fa-shopping-cart  cart cart-shop" />
+                            <FontAwesomeIcon icon={faCartShopping} />
                             <span className="cart-count" />
                         </a>
                     </div>
@@ -88,7 +90,7 @@ export default function Header() {
                         <div className="menu-container">
                             <ul className="drop-menu">
                                 <li className="drop-item">
-                                    <a href="/pages/about.html">Mi perfil</a>
+                                    <NavLink to="/about" className="nav-link">Mi Perfil</NavLink>
                                 </li>
                                 <li className="drop-item">
                                     <a href="#">Mis compras</a>

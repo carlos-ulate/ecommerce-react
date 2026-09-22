@@ -1,3 +1,10 @@
+import { faEye, faStar } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink } from "react-router";
+
+
+
+
 export default function Products() {
     return (
         <>
@@ -186,17 +193,17 @@ export default function Products() {
                         <div className="card">
                             <div className="card-image">
                                 <img
-                                    src="/assets/images/products/nvidia_5070ti.jpg"
+                                    src="./src/assets/images/products/nvidia_5070ti.jpg"
                                     alt="nvidia_5070ti"
                                 />
-                                <i className="bx bx-star" />
-                                <a
-                                    href="/pages/product-detail.html"
+                                <FontAwesomeIcon icon={faStar} />
+                                <NavLink
+                                    to="/products/productDetail"
                                     className="view-more-btn"
                                     aria-label="Ver más"
                                 >
-                                    <i className="fas fa-eye" />
-                                </a>
+                                    <FontAwesomeIcon icon={faEye} />
+                                </NavLink>
                             </div>
                             <div className="card-content">
                                 <h3>Tarjeta Grafica</h3>
@@ -208,7 +215,7 @@ export default function Products() {
                         <div className="card">
                             <div className="card-image">
                                 <img
-                                    src="/assets/images/products/MSI _5050.webp"
+                                    src="./src/assets/images/products/MSI _5050.webp"
                                     alt="nvidia_5050"
                                 />
                                 <i className="bx bx-star" />
@@ -226,7 +233,7 @@ export default function Products() {
                         <div className="card">
                             <div className="card-image">
                                 <img
-                                    src="/assets/images/products/razer_headset.avif"
+                                    src="./src/assets/images/products/razer_headset.avif"
                                     alt="razer_headset"
                                 />
                                 <i className="bx bx-star" />
@@ -244,7 +251,7 @@ export default function Products() {
                         <div className="card">
                             <div className="card-image">
                                 <img
-                                    src="/assets/images/products/redragon_keyboard.jpg"
+                                    src="./src/assets/images/products/redragon_keyboard.jpg"
                                     alt="redragon_keyboard"
                                 />
                                 <i className="bx bx-star" />
@@ -261,7 +268,7 @@ export default function Products() {
                         </div>
                         <div className="card">
                             <div className="card-image">
-                                <img src="/assets/images/products/case.webp" alt="case" />
+                                <img src="./src/assets/images/products/case.webp" alt="case" />
                                 <i className="bx bx-star" />
                                 <button className="view-more-btn" aria-label="Ver más">
                                     <i className="fas fa-eye" />
@@ -277,7 +284,7 @@ export default function Products() {
                         <div className="card">
                             <div className="card-image">
                                 <img
-                                    src="/assets/images/products/enfriamiento.jpg"
+                                    src="./src/assets/images/products/enfriamiento.jpg"
                                     alt="enfriamiento_liquido"
                                 />
                                 <i className="bx bx-star" />
@@ -294,7 +301,7 @@ export default function Products() {
                         </div>
                         <div className="card">
                             <div className="card-image">
-                                <img src="/assets/images/products/ram.webp" alt="memoria_ram" />
+                                <img src="./src/assets/images/products/ram.webp" alt="memoria_ram" />
                                 <i className="bx bx-star" />
                                 <button className="view-more-btn" aria-label="Ver más">
                                     <i className="fas fa-eye" />
@@ -310,7 +317,7 @@ export default function Products() {
                         <div className="card">
                             <div className="card-image">
                                 <img
-                                    src="/assets/images/products/samsung_oled.jpg"
+                                    src="./src/assets/images/products/samsung_oled.jpg"
                                     alt="samsung_monitor"
                                 />
                                 <i className="bx bx-star" />
@@ -328,7 +335,7 @@ export default function Products() {
                         <div className="card">
                             <div className="card-image">
                                 <img
-                                    src="/assets/images/products/logitech_camara.jpg"
+                                    src="./src/assets/images/products/logitech_camara.jpg"
                                     alt="camara_logitech"
                                 />
                                 <i className="bx bx-star" />
