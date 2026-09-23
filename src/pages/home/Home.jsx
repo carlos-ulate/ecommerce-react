@@ -54,11 +54,11 @@ export default function Home() {
           <video
             src="./src/assets/videos/blackmyth-banner.mp4"
             alt="banner_video"
-            controls=""
-            autoPlay=""
-            muted=""
-            loop=""
-            playsInline=""
+            controls
+            autoPlay
+            mute
+            loop
+            playsInline
             width="100%"
           />
         </div>

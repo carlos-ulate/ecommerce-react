@@ -351,40 +351,6 @@ main {
     }
 }
 
-.product-layout {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    max-width: 1200px;
-    padding: 20px;
-}
-
-/* esconde boton del filtro... */
-#filtrar,
-label[for="filtrar"] {
-    display: none;
-}
-
-.filter-bar {
-    width: 280px;
-    background-color: var(--background);
-    padding: 20px;
-    border-radius: 6px;
-    flex-shrink: 0;
-}
-
-.product-section {
-    flex-grow: 1;
-}
-
-.product-section .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-
-    flex-wrap: wrap;
-
-}
 
 .inf {
     font-weight: 600;
@@ -463,52 +429,7 @@ label[for="filtrar"] {
         }
     }
 
-    .product-layout {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    label[for="filtrar"] {
-        display: inline-block !important;
-        width: auto;
-        padding: 8px 16px;
-        background-color: var(--accent-secondary);
-        color: var(--background);
-        font-weight: bold;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: 0.3s ease;
-    }
-
-    label[for="filtrar"]:hover {
-        background-color: var(--accent-secondary);
-    }
-
-    #filtrar {
-        display: none;
-    }
-
-    .filter-bar {
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        width: 100%;
-        box-sizing: border-box;
-        transition:
-            0.3s ease,
-            opacity 0.3s;
-        overflow-y: auto;
-    }
-
-    #filtrar:checked+label+.filter-bar {
-        max-height: 500px;
-        opacity: 1;
-    }
-
-    .product-section {
-        width: 100%;
-    }
+  
 
     .product-section .container {
         justify-content: center;
@@ -569,50 +490,7 @@ label[for="filtrar"] {
         }
     }
 
-    .product-layout {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
 
-    label[for="filtrar"] {
-        display: inline-block !important;
-        /*se agrego important para que se muestre el boton...*/
-        width: auto;
-        padding: 8px 16px;
-        background-color: var(--accent-secondary);
-        color: var(--background);
-        font-weight: bold;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: 0.3s ease;
-    }
-
-    label[for="filtrar"]:hover {
-        background-color: var(--accent-secondary);
-    }
-
-    #filtrar {
-        display: none;
-    }
-
-    .filter-bar {
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        width: 100%;
-        box-sizing: border-box;
-        transition:
-            0.3s ease,
-            opacity 0.3s;
-
-        overflow-y: auto;
-    }
-
-    #filtrar:checked+label+.filter-bar {
-        max-height: 500px;
-        opacity: 1;
-    }
 
     .product-section {
         width: 100%;
@@ -693,49 +571,7 @@ label[for="filtrar"] {
 
     
 
-    .product-layout {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
 
-    label[for="filtrar"] {
-        display: inline-block !important;
-        width: auto;
-        padding: 8px 16px;
-        background-color: var(--accent-secondary);
-        color: var(--background);
-        font-weight: bold;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: 0.3s ease;
-    }
-
-    label[for="filtrar"]:hover {
-        background-color: var(--accent-secondary);
-    }
-
-    #filtrar {
-        display: none;
-    }
-
-    .filter-bar {
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        width: 100%;
-        box-sizing: border-box;
-        transition:
-            0.3s ease,
-            opacity 0.3s;
-
-        overflow-y: auto;
-    }
-
-    #filtrar:checked+label+.filter-bar {
-        max-height: 500px;
-        opacity: 1;
-    }
 
     .product-section {
         width: 100%;

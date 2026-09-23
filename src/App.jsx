@@ -19,7 +19,7 @@ function App() {
     <>
 
       <Header />
-      <h1>Ecommerce</h1>
+   
 
 
       <main className='main-container'>

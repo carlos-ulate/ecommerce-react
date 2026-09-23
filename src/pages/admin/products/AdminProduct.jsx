@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import "./AdminProduct.css"
+import "../../products/Products.css"
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
@@ -10,7 +11,10 @@ const URL_BASE = 'https://6aab23a5ea0e22daa6dbcf5b.mockapi.io'
 export default function AdminProduct() {
 
     const [products, setProducts] = useState([]);
-    const { register, handleSubmit } = useForm();
+
+    const [editingProductId, setEditingProductId] = useState(null);
+
+    const { register, handleSubmit, setValue } = useForm();
 
     useEffect(() => {
 
@@ -36,20 +40,36 @@ export default function AdminProduct() {
     async function envioFormulario(data) {
         try {
 
+            const product = data;
 
-            const newProduct = data;
-            newProduct.createdAt = new Date().toISOString()
+            if (editingProductId) {
+                //Significa que estamos editando un producto 
+                await axios.put(`${URL_BASE}/products/${editingProductId}` , product)
 
-            const response = await axios.post(`${URL_BASE}/products`, newProduct)
+                 Swal.fire({
+                    title: "Producto acatualiado",
+                    text: `El producto ${product.name} ha sido actualizado exitosamente`,
+                    icon: "success"
 
-            Swal.fire({
-                title: "Producto Creado",
-                text: `El producto ${newProduct.name} fue creado exitosamente`,
-                icon: "success"
+                })
 
-            })
+            } else {
+                product.createdAt = new Date().toISOString()
+                await axios.post(`${URL_BASE}/products`, product)
+
+                Swal.fire({
+                    title: "Producto Creado",
+                    text: `El producto ${product.name} fue creado exitosamente`,
+                    icon: "success"
+
+                })
+                //Si no tengo valor de editingProductId, significa que estamos creando un nuevo producto
+            }
+
+            setEditingProductId(null); // reiniciar el estado de edicion despues de enviar el formulario.
 
             obtenerProductos()
+            
 
         } catch (error) {
 
@@ -87,7 +107,7 @@ export default function AdminProduct() {
                 icon: "success"
 
             });
-
+            //vuelvo a pedir productos luego de eliminar uno 
             obtenerProductos()
 
         } catch (error) {
@@ -101,7 +121,22 @@ export default function AdminProduct() {
     }
 
     function handleEdit(id) {
-        console.log(`Editing product with ID ${id}`)
+        //Cuando obtengamos el Id del producto a editar, vamos a rellenar el formulario con los daatos existentes del producto elegido para  su edicion. 
+        //Usaremos el id para buscar el producto correspondiente y rellenar el formulario con sus datos con el metodo find.
+
+        const productoEditar = products.find(producto => producto.id === id)
+
+        if (productoEditar) {
+            setValue("image", productoEditar.image)
+            setValue("name", productoEditar.name)
+            setValue("description", productoEditar.description)
+            setValue("category", productoEditar.category)
+            setValue("price", productoEditar.price)
+            // setValue("id", productoEditar.id)
+            setValue("stock", productoEditar.stock)
+            // voy a guardar el id del producto que se esta editando en el estado 
+            setEditingProductId(productoEditar.id)
+        }
     }
 
     return (
