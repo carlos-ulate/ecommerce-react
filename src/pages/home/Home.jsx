@@ -1,3 +1,5 @@
+import ProductContainer from "../../components/product-container/ProductContainer";
+
 export default function Home() {
   return (
     <>
@@ -89,177 +91,15 @@ export default function Home() {
           </div>
         </section>
         <section className="product-section">
-          <div className="prod">
-            <h2 className="section-title">Nuestros Productos</h2>
-            <p className="section-text">
-              El inventario de hardware está seleccionado específicamente para
-              cubrir desde jugadores casuales hasta competidores profesionales:{" "}
-            </p>
-          </div>
-          {/*div para la seccion de cards*/}
-          <div className=" container">
-            <div className="card">
-              <div className="card-image">
-                <img
-                  src="/assets/images/products/nvidia_5070ti.jpg"
-                  alt="nvidia_5070ti"
-                />
-                <i className="bx bx-star" />
-                <a
-                  href="/pages/product-detail.html"
-                  className="view-more-btn"
-                  aria-label="Ver más"
-                >
-                  <i className="fas fa-eye" />
-                </a>
-              </div>
-              <div className="card-content">
-                <h3>Tarjeta Grafica</h3>
-                <p>Asus Tuf GeForce 5070 TI 16GB Gaming</p>
-                <span className="price">$1000</span>
-                <button className="add-to-cart">Agregar al carro</button>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-image">
-                <img
-                  src="/assets/images/products/MSI _5050.webp"
-                  alt="nvidia_5050"
-                />
-                <i className="bx bx-star" />
-                <button className="view-more-btn" aria-label="Ver más">
-                  <i className="fas fa-eye" />
-                </button>
-              </div>
-              <div className="card-content">
-                <h3>Tarjeta Grafica</h3>
-                <p>MSI GeForce RTX 5050 8GB Gaming OC</p>
-                <span className="price">$350</span>
-                <button className="add-to-cart">Agregar al carro</button>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-image">
-                <img
-                  src="/assets/images/products/razer_headset.avif"
-                  alt="razer_headset"
-                />
-                <i className="bx bx-star" />
-                <button className="view-more-btn" aria-label="Ver más">
-                  <i className="fas fa-eye" />
-                </button>
-              </div>
-              <div className="card-content">
-                <h3>Audifonos</h3>
-                <p>Razer BlackShark V3 Pro Wireless ANC Blanco</p>
-                <span className="price">$230</span>
-                <button className="add-to-cart">Agregar al carro</button>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-image">
-                <img
-                  src="/assets/images/products/redragon_keyboard.jpg"
-                  alt="redragon_keyboard"
-                />
-                <i className="bx bx-star" />
-                <button className="view-more-btn" aria-label="Ver más">
-                  <i className="fas fa-eye" />
-                </button>
-              </div>
-              <div className="card-content">
-                <h3>Perifericos</h3>
-                <p>Redragon K552W Kumara RGB</p>
-                <span className="price">$35</span>
-                <button className="add-to-cart">Agregar al carro</button>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-image">
-                <img src="/assets/images/products/case.webp" alt="case" />
-                <i className="bx bx-star" />
-                <button className="view-more-btn" aria-label="Ver más">
-                  <i className="fas fa-eye" />
-                </button>
-              </div>
-              <div className="card-content">
-                <h3>Case</h3>
-                <p>XYZ Aurorax 50 Negro XYZ-SA-1020</p>
-                <span className="price">$60</span>
-                <button className="add-to-cart">Agregar al carro</button>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-image">
-                <img
-                  src="/assets/images/products/enfriamiento.jpg"
-                  alt="enfriamiento_liquido"
-                />
-                <i className="bx bx-star" />
-                <button className="view-more-btn" aria-label="Ver más">
-                  <i className="fas fa-eye" />
-                </button>
-              </div>
-              <div className="card-content">
-                <h3>Enfriamiento Liquido</h3>
-                <p>Darkflash Nebula Series DN3600D</p>
-                <span className="price">$80</span>
-                <button className="add-to-cart">Agregar al carro</button>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-image">
-                <img src="/assets/images/products/ram.webp" alt="memoria_ram" />
-                <i className="bx bx-star" />
-                <button className="view-more-btn" aria-label="Ver más">
-                  <i className="fas fa-eye" />
-                </button>
-              </div>
-              <div className="card-content">
-                <h3>Memoria RAM</h3>
-                <p>Adata XPG Armax RGB 16GB DDR5 5600</p>
-                <span className="price">$75</span>
-                <button className="add-to-cart">Agregar al carro</button>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-image">
-                <img
-                  src="/assets/images/products/samsung_oled.jpg"
-                  alt="samsung_monitor"
-                />
-                <i className="bx bx-star" />
-                <button className="view-more-btn" aria-label="Ver más">
-                  <i className="fas fa-eye" />
-                </button>
-              </div>
-              <div className="card-content">
-                <h3>Monitores</h3>
-                <p>Samsung Odyssey G8 27″ Oled 4k 240Hz</p>
-                <span className="price">$1299.99</span>
-                <button className="add-to-cart">Agregar al carro</button>
-              </div>
-            </div>
-            <div className="card">
-              <div className="card-image">
-                <img
-                  src="/assets/images/products/logitech_camara.jpg"
-                  alt="camara_logitech"
-                />
-                <i className="bx bx-star" />
-                <button className="view-more-btn" aria-label="Ver más">
-                  <i className="fas fa-eye" />
-                </button>
-              </div>
-              <div className="card-content">
-                <h3>Webcam</h3>
-                <p>Logitech MX Brio </p>
-                <span className="price">$169.99</span>
-                <button className="add-to-cart">Agregar al carro</button>
-              </div>
-            </div>
-          </div>
+        
+
+
+         <ProductContainer />
+
         </section>
+
+
+
         {/*seccion de servicios que ofrece la empresa*/}
         <section className="servicios">
           <div className="serv">

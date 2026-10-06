@@ -9,7 +9,8 @@ import Home from './pages/home/Home'
 import AdminProduct from './pages/admin/products/AdminProduct'
 import Register from './pages/register/Register'
 import Products from './pages/products/Products'
-import ProductDetail from './pages/products/productDetail/ProductDetail'
+import ProductDetail from './pages/product-detail/ProductDetail'
+
 
 
 function App() {
@@ -31,7 +32,9 @@ function App() {
           <Route path="/admin/products" element={<AdminProduct />} />
           <Route path="/register" element={<Register />} />
           <Route path='/products' element={<Products />} />
-          <Route path='/products/productDetail' element={<ProductDetail />} />
+          <Route path='/product-detail/:id' element={<ProductDetail />} />
+
+          <Route path="*" element={<h1> NOT FOUND 404</h1>} />
         </Routes>
 
 

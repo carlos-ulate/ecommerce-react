@@ -1,0 +1,36 @@
+.detalles {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+
+    h6 {
+        text-align: left;
+        font-weight: light;
+    }
+
+    .det-img {
+        p {
+            font-weight: 500;
+            font-size: x-large;
+        }
+    }
+
+    h2 {
+        margin-top: 5px;
+    }
+
+    p {
+        margin-left: 15px;
+    }
+
+    button {
+        cursor: pointer;
+        color: var(--background);
+        width: 50%;
+        height: 50px;
+        font-size: 22px;
+        font-weight: 600;
+        border-radius: 12px;
+        background: var(--bg-btns);
+    }
+}

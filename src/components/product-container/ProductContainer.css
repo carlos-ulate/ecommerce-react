@@ -1,0 +1,12 @@
+.prod {
+    .section-title {
+        text-align: center;
+        color: var(--color);
+        font-size: 35px;
+        margin-top: 20px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+}

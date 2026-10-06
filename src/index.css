@@ -107,18 +107,7 @@ main {
     font-size: 20px;
 }
 
-.prod {
-    .section-title {
-        text-align: center;
-        color: var(--color);
-        font-size: 35px;
-        margin-top: 20px;
-    }
 
-    p {
-        font-size: 18px;
-    }
-}
 
 .serv {
     .serv-title {
@@ -142,121 +131,7 @@ main {
     flex-wrap: wrap;
 }
 
-.card {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 30px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    transition: 0.4s ease;
-    border: 1px solid transparent;
-}
 
-.card:hover {
-    transform: scale(1.05);
-    background-color: var(--card-bg-hover);
-    border-color: #bb00ff !important;
-    box-shadow:
-        0 0 25px rgba(187, 0, 255, 0.6),
-        0 0 50px rgba(0, 221, 235, 0.4) !important;
-}
-
-.card .card-image img {
-    width: 100%;
-}
-
-.card .card-image {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    padding: 0 20px;
-    text-align: center;
-    border-radius: 12px;
-    background-color: #fff;
-    transition: 0.4s ease;
-}
-
-.card:hover .card-image {
-    transform: scale(1.02) rotate(-3deg) translateX(-5px);
-}
-
-.card .card-image .bx-star {
-    cursor: pointer;
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    padding: 10px;
-    font-size: 20px;
-    background-color: var(--background);
-    color: #8a8f98;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-}
-
-.card .card-content {
-    h3 {
-        color: var(--color);
-        font-size: 22px;
-        margin-top: 20px;
-    }
-
-    p {
-        color: var(--color-secondary);
-        margin: 8px 0 22px;
-        font-size: 18px;
-        font-weight: 500;
-        text-align: justify;
-    }
-
-    button {
-        cursor: pointer;
-        color: var(--background);
-        width: 100%;
-        height: 50px;
-        font-size: 22px;
-        font-weight: 600;
-        border-radius: 12px;
-        background: var(--bg-btns);
-    }
-
-    .price {
-        font-weight: 650;
-        font-size: 22px;
-    }
-}
-
-.view-more-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    background-color: rgba(255, 255, 255, 0.9);
-    border: none;
-    color: #333;
-    padding: 12px;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-
-    /*estilo para opacidad que este oculto */
-
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3 ease;
-}
-
-/* Se muestra con hover */
-
-.card-image:hover .view-more-btn {
-    opacity: 1;
-    pointer-events: auto;
-    transform: 0.4s ease;
-}
-
-.view-more-btn {
-    color: white;
-    background: var(--bg-btns);
-}
 
 .serv-container {
     display: flex;
@@ -288,9 +163,9 @@ main {
     color: var(--color);
 }
 
- 
 
- 
+
+
 .contact-header {
     padding: 20px;
 
@@ -357,42 +232,7 @@ main {
     color: var(--color);
 }
 
-.detalles {
-    display: flex;
-    justify-content: center;
-    padding: 15px;
 
-    h6 {
-        text-align: left;
-        font-weight: light;
-    }
-
-    .det-img {
-        p {
-            font-weight: 500;
-            font-size: x-large;
-        }
-    }
-
-    h2 {
-        margin-top: 5px;
-    }
-
-    p {
-        margin-left: 15px;
-    }
-
-    button {
-        cursor: pointer;
-        color: var(--background);
-        width: 50%;
-        height: 50px;
-        font-size: 22px;
-        font-weight: 600;
-        border-radius: 12px;
-        background: var(--bg-btns);
-    }
-}
 
 .table-title {
     margin-top: 25px;
@@ -429,7 +269,7 @@ main {
         }
     }
 
-  
+
 
     .product-section .container {
         justify-content: center;
@@ -445,22 +285,22 @@ main {
         display: none;
     }
 
- 
+
 }
 
 @media (width <=768px) {
-  
 
-   
+
+
     .location {
         p {
             padding: 10px;
         }
     }
 
-  
 
-    
+
+
 
     .contact-body {
         flex-direction: column;
@@ -557,7 +397,7 @@ main {
 }
 
 @media (width < 480px) {
-  
+
 
     #hero {
         font-size: 16px;
@@ -569,7 +409,7 @@ main {
         display: none;
     }
 
-    
+
 
 
 
@@ -717,7 +557,7 @@ main {
         white-space: normal;
     }
 
- 
+
 }
 
 @media (width<700px) {

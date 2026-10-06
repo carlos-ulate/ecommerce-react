@@ -1,0 +1,118 @@
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    transition: 0.4s ease;
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: var(--card-bg-hover);
+    border-color: #bb00ff !important;
+    box-shadow:
+        0 0 25px rgba(187, 0, 255, 0.6),
+        0 0 50px rgba(0, 221, 235, 0.4) !important;
+}
+
+.card .card-image img {
+
+    padding: 5px 20px;
+    display: block;
+    width: 100%;
+}
+
+.card .card-image {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    border-radius: 12px;
+    background-color: #fff;
+    transition: 0.4s ease;
+}
+
+.card:hover .card-image {
+    transform: scale(1.02) rotate(-3deg) translateX(-5px);
+}
+
+.card .card-image .star-icon {
+    cursor: pointer;
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: var(--background);
+    color: #8a8f98;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.card .card-content {
+    h3 {
+        color: var(--color);
+        font-size: 22px;
+        margin-top: 20px;
+    }
+
+    p {
+        color: var(--color-secondary);
+        margin: 8px 0 22px;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: justify;
+    }
+
+    button {
+        cursor: pointer;
+        color: var(--background);
+        width: 100%;
+        height: 50px;
+        font-size: 22px;
+        font-weight: 600;
+        border-radius: 12px;
+        background: var(--bg-btns);
+    }
+
+    .price {
+        font-weight: 650;
+        font-size: 22px;
+    }
+}
+
+.view-more-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: #333;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+    /*estilo para opacidad que este oculto */
+
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Se muestra con hover */
+
+.card-image:hover .view-more-btn {
+    opacity: 1;
+    pointer-events: auto;
+
+}
+
+.view-more-btn {
+    color: white;
+    background: var(--bg-btns);
+}

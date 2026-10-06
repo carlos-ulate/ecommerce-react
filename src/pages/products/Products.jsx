@@ -196,7 +196,7 @@ export default function Products() {
                                     src="./src/assets/images/products/nvidia_5070ti.jpg"
                                     alt="nvidia_5070ti"
                                 />
-                                <FontAwesomeIcon icon={faStar} />
+                                <FontAwesomeIcon  className="star-icon" icon={faStar} />
                                 <NavLink
                                     to="/products/productDetail"
                                     className="view-more-btn"

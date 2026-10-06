@@ -3,18 +3,23 @@ import "./AdminProduct.css"
 import "../../products/Products.css"
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ProductRow from "../../../components/product-row/ProductRow";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 
 const URL_BASE = 'https://6aab23a5ea0e22daa6dbcf5b.mockapi.io'
 
 export default function AdminProduct() {
 
+    const nameInputRef = useRef(null); // Referencia para el input de nombre del producto
+
     const [products, setProducts] = useState([]);
 
     const [editingProductId, setEditingProductId] = useState(null);
 
-    const { register, handleSubmit, setValue } = useForm();
+    // Hook de formularios
+    const { register, handleSubmit, setValue, reset, formState: { errors, isValid } } = useForm({ mode: "onBlur" });
 
     useEffect(() => {
 
@@ -44,9 +49,9 @@ export default function AdminProduct() {
 
             if (editingProductId) {
                 //Significa que estamos editando un producto 
-                await axios.put(`${URL_BASE}/products/${editingProductId}` , product)
+                await axios.put(`${URL_BASE}/products/${editingProductId}`, product)
 
-                 Swal.fire({
+                Swal.fire({
                     title: "Producto acatualiado",
                     text: `El producto ${product.name} ha sido actualizado exitosamente`,
                     icon: "success"
@@ -67,9 +72,18 @@ export default function AdminProduct() {
             }
 
             setEditingProductId(null); // reiniciar el estado de edicion despues de enviar el formulario.
+            reset();
+
+            //Hacer foco nuevamente en el primer campo del formulario despues de enviarlo, 
+            //codigo full JS
+            // document.querySelector('input[name="name"]').focus();
+
+            //react:
+
+            nameInputRef?.current?.focus();
 
             obtenerProductos()
-            
+
 
         } catch (error) {
 
@@ -144,7 +158,7 @@ export default function AdminProduct() {
         <div className="admin-container">
             <div className="form-container">
 
-                <form className="contact-form  registro-form" onSubmit={handleSubmit(envioFormulario)}>
+                <form className="contact-form  registro-form" onSubmit={handleSubmit(envioFormulario)} noValidate>
                     <div>
                         <h2>Agregar Nuevo Producto</h2>
                     </div>
@@ -153,11 +167,15 @@ export default function AdminProduct() {
                     <input
 
                         type="text"
+                        ref={nameInputRef} // Asignar la referencia al input de nombre
                         id="name"
-                        {...register("name")}
-                        required=""
+                        {...register("name", { required: "El nombre del producto es obligatorio", minLength: { value: 3, message: "El nombre del producto debe tener al menos 3 caracteres" }, maxLength: { value: 50, message: "El nombre del producto no puede exceder los 50 caracteres" } }
+
+                        )}
 
                     />
+                    {errors?.name && <p className="error">{errors.name.message}</p>}
+
                     <br />
                     <label htmlFor="description">Descripcion del Producto</label>
                     <br />
@@ -165,10 +183,11 @@ export default function AdminProduct() {
 
                         type="text"
                         id="description"
-                        {...register("description")}
-                        required=""
+                        {...register("description", {  minLength: { value: 10, message: "La descripción del producto debe tener al menos 10 caracteres" }, maxLength: { value: 200, message: "La descripción del producto no puede exceder los 200 caracteres" } })}
+
 
                     />
+                    {errors?.description && <p className="error">{errors.description.message}</p>}
                     <br />
                     <label htmlFor="price">Precio</label>
                     <br />
@@ -176,15 +195,16 @@ export default function AdminProduct() {
 
                         type="number"
                         id="price"
-                        {...register("price", { valueAsNumber: true })}
-                        required=""
+                        {...register("price", { valueAsNumber: true, requiered: " Indique el precio del Producto", min: { value: 0, message: "El precio del producto debe ser mayor a $0" } })}
+
 
                     />
+                    {errors?.price && <p className="error">{errors.price.message}</p>}
                     <br />
                     <label htmlFor="desc">Categoria</label><br></br>
-                    <select  {...register("category")}
+                    <select  {...register("category",      )}
                         id=""
-                        required="">
+                         >
 
 
                         <option value="">Selecciona una categoria</option>
@@ -197,7 +217,10 @@ export default function AdminProduct() {
                         <option value="case">Case</option>
                         <option value="enfriamiento">Enfriamiento Liquido</option>
                         <option value="ram">Memoria RAM</option>
-                    </select><br></br>
+                    </select>
+
+                    {/* {errors?.category && <p className="error">{errors.category.message}</p>} */}
+                    <br></br>
                     {/* <label htmlFor="createdAt">Fecha de Ingreso</label>
                     <br />
                     <input
@@ -208,17 +231,19 @@ export default function AdminProduct() {
                         requeried=""
 
                     /> */}
+
                     <br />
                     <label htmlFor="image">Cargar Imagen/Producto</label>
                     <br />
                     <input
 
                         type="url"
-                        {...register("image")}
+                        {...register("image", { required: "La URL de la imagen es obligatoria", pattern: { value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))$/i, message: "Ingrese una URL válida de imagen" } })}
                         id="image"
-                        requeried=""
+
 
                     />
+                    {errors?.image && <p className="error">{errors.image.message}</p>}
                     <br />
                     <label htmlFor="stock">Stock:</label>
                     <br />
@@ -226,16 +251,26 @@ export default function AdminProduct() {
 
                         type="number"
                         id="stock"
-                        {...register("stock", { valueAsNumber: true })}
-                        required="" />
-
+                        {...register("stock", { valueAsNumber: true, required: "Indique el stock del producto", min: { value: 0, message: "El stock no puede ser negativo" } })}
+                    />
+                    {errors?.stock && <p className="error">{errors.stock.message}</p>}
                     <br />
 
                     <br />
                     <br />
-                    <button type="submit" className="button-contact">
-                        Agregar Producto
-                    </button>
+                    <div className="button-container">
+                        <button disabled={!isValid} type="submit" className={`button-contact ${editingProductId ? "edit-button" : " "} `} >
+                            {editingProductId ? "Actualizar Producto" : "Agregar Producto"}
+                        </button>
+
+                        {editingProductId && (
+                            <button onClick={() => setEditingProductId(null)} className="cancel-button">
+
+                                <FontAwesomeIcon icon={faX} />
+
+                            </button>
+                        )}
+                    </div>
                 </form>
 
 
