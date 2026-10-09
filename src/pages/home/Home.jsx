@@ -58,7 +58,7 @@ export default function Home() {
             alt="banner_video"
             controls
             autoPlay
-            mute
+            muted
             loop
             playsInline
             width="100%"

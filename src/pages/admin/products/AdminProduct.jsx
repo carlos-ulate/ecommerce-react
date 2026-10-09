@@ -19,7 +19,7 @@ export default function AdminProduct() {
     const [editingProductId, setEditingProductId] = useState(null);
 
     // Hook de formularios
-    const { register, handleSubmit, setValue, reset, formState: { errors, isValid } } = useForm({ mode: "onBlur" });
+    const { register, handleSubmit, setValue, reset, trigger, formState: { errors, isValid } } = useForm({ mode: "onChange" });
 
     useEffect(() => {
 
@@ -148,6 +148,7 @@ export default function AdminProduct() {
             setValue("price", productoEditar.price)
             // setValue("id", productoEditar.id)
             setValue("stock", productoEditar.stock)
+            trigger()
             // voy a guardar el id del producto que se esta editando en el estado 
             setEditingProductId(productoEditar.id)
         }
@@ -179,11 +180,9 @@ export default function AdminProduct() {
                     <br />
                     <label htmlFor="description">Descripcion del Producto</label>
                     <br />
-                    <input
+                    <textarea id="description" 
 
-                        type="text"
-                        id="description"
-                        {...register("description", {  minLength: { value: 10, message: "La descripción del producto debe tener al menos 10 caracteres" }, maxLength: { value: 200, message: "La descripción del producto no puede exceder los 200 caracteres" } })}
+                        {...register("description", { minLength: { value: 10, message: "La descripción del producto debe tener al menos 10 caracteres" }, maxLength: { value: 1000, message: "La descripción del producto no puede exceder los 1000 caracteres" } })}
 
 
                     />
@@ -202,9 +201,9 @@ export default function AdminProduct() {
                     {errors?.price && <p className="error">{errors.price.message}</p>}
                     <br />
                     <label htmlFor="desc">Categoria</label><br></br>
-                    <select  {...register("category",      )}
+                    <select  {...register("category",)}
                         id=""
-                         >
+                    >
 
 
                         <option value="">Selecciona una categoria</option>
@@ -238,7 +237,7 @@ export default function AdminProduct() {
                     <input
 
                         type="url"
-                        {...register("image", { required: "La URL de la imagen es obligatoria", pattern: { value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))$/i, message: "Ingrese una URL válida de imagen" } })}
+                        {...register("image", { required: "La URL de la imagen es obligatoria", pattern: { value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg|webp))$/i, message: "Ingrese una URL válida de imagen" } })}
                         id="image"
 
 
@@ -287,7 +286,7 @@ export default function AdminProduct() {
                             <tr>
                                 <th>Foto</th>
                                 <th>Nombre</th>
-                                <th>Descripcion</th>
+                                <th >Descripcion</th>
                                 <th>Fecha de Ingreso</th>
                                 <th>Precio</th>
                                 <th>Stock</th>
