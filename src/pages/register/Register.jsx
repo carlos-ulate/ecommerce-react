@@ -1,5 +1,5 @@
 
-import { useNavigate } from "react-router"
+
 import Swal from "sweetalert2"
 import { createUser } from "../../services/users.services"
 import { useForm } from "react-hook-form"
@@ -18,8 +18,8 @@ const PAISES = {
 
 export default function Register() {
 
-    const navigate = useNavigate();
-    const { register, handleSubmit, getValues, formState: { errors, isValid, } } = useForm({ mode: "onChange", defaultValues: { country: "costa-rica" } })
+
+    const { register, handleSubmit, getValues, reset, formState: { errors, isValid, } } = useForm({ mode: "onChange", defaultValues: { country: "costa-rica" } })
 
 
     async function handleRegister(data) {
@@ -44,7 +44,7 @@ export default function Register() {
                 icon: "success"
             })
 
-           
+            reset();
 
         } catch (error) {
             console.log(error)
@@ -159,9 +159,9 @@ export default function Register() {
                     <input type="date" id="fecha" name="fecha" {...register("fecha")} />
                     {errors.fecha && <p className="error">{errors.fecha.message}</p>}
                     <br />
-                    <label htmlFor="country">Elija un pais</label>
+                    <label htmlFor="address">Elija un pais</label>
                     <br />
-                    <select name="country" id="country" {...register("country")}>
+                    <select name="address" id="address" {...register("address")}>
                         <option value="costa-rica">Costa Rica</option>
                         <option value="argentina">Argentina</option>
                         <option value="estados-unidos">Estados Unidos</option>
@@ -188,7 +188,7 @@ export default function Register() {
                     <br />
                     <br />
                     <br />
-                    <button disabled={!isValid} type="submit" className="button-contact">
+                    <button disabled={!isValid} type="submit" className="button-contact"  >
                         Enviar
                     </button>
                 </form>
