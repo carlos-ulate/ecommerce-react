@@ -2,10 +2,9 @@
 
 ## Descripción
 
-**Ecommerce-react** 
-es una aplicación web de comercio electrónico desarrollada como una Single Page Application (SPA) con React. El proyecto implementa una arquitectura basada en componentes reutilizables y ofrece una experiencia de usuario fluida, que incluye autenticación de usuarios con persistencia de sesión, validación de formularios y visualización del catálogo de productos.
+**Ecommerce-react** es una aplicación web de comercio electrónico desarrollada con React. El proyecto implementa una arquitectura basada en componentes reutilizables y está organizado en distintas secciones: inicio, productos, registro e inicio de sesión, contacto y un panel de administración para la gestión de usuarios y productos.
 
-La interfaz cuenta con un diseño responsive, optimizado para dispositivos móviles, tablets y escritorio, y con una identidad visual moderna orientada al sector gaming.
+Incluye autenticación de usuarios con persistencia de sesión y validación de formularios. La interfaz cuenta con un diseño responsive, optimizado para dispositivos móviles, tablets y escritorio, y con una identidad visual moderna orientada al sector gaming.
 
 ## Tecnologías utilizadas
 
@@ -16,14 +15,23 @@ La interfaz cuenta con un diseño responsive, optimizado para dispositivos móvi
 - **Vite**: herramienta de desarrollo y empaquetado.
 - **Web Storage API (localStorage)**: persistencia de la sesión del usuario.
 
+## Secciones de la aplicación
+
+- **Inicio**: página principal de la tienda.
+- **Productos**: catálogo de productos disponibles.
+- **Registro / Inicio de sesión**: creación de cuentas y acceso de usuarios.
+- **Contacto**: formulario de contacto.
+- **Panel de administración**:
+  - **Admin Users**: gestión de usuarios.
+  - **Admin Products**: gestión de productos.
+
 ## Características principales
 
 - Autenticación de usuarios (inicio de sesión y registro).
 - Validación de formularios: formato de correo electrónico, longitud mínima de contraseña y campos obligatorios.
 - Persistencia de sesión mediante localStorage.
-- Catálogo de productos con vista detallada.
+- Panel de administración para gestionar usuarios y productos.
 - Diseño responsive adaptable a múltiples dispositivos.
-- Navegación fluida sin recargas de página.
 
 ## Próximas mejoras
 
