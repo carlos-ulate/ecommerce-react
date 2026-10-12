@@ -4,8 +4,11 @@ import UserLogo from "../../assets/images/Portrait_Placeholder.png"
 import { NavLink } from "react-router"
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useAuth } from "../../context/AuthContext"
 
 export default function Header() {
+    const { isAdmin, isLoggedIn, logout, user } = useAuth()
+
     return (
         <header className="nav-bar">
             {/*div para nav de bootsrap*/}
@@ -34,15 +37,20 @@ export default function Header() {
 
                             <li className="nav-item">
                                 <NavLink to="/" className="nav-link">
-                                    Principal
+                                    Inicio
                                 </NavLink>
 
                             </li>
+
+                            { !isLoggedIn && (
                             <li className="nav-item">
                                 <NavLink to="/register" className="nav-link">
                                     Registro
                                 </NavLink>
+                                
                             </li>
+                            )}
+                            
                             <li className="nav-item">
                                 <NavLink to="/products" className="nav-link">Productos</NavLink>
                             </li>
@@ -51,10 +59,28 @@ export default function Header() {
                                     Contacto
                                 </NavLink>
                             </li>
+                             
+                                {isAdmin&& (
+                                    <li className="nav-item">
+                                        <NavLink to="/admin/products" className="nav-link">Admin</NavLink>
+                                    </li>
+                                )}
+                             
                             <li>
-                                <NavLink to="/admin/products" className="nav-link">Admin Products</NavLink>
+                                {isLoggedIn ? (
+                                    <button type="button" onClick={logout} className="nav-link btn btn-link">
+                                        Cerrar Sesion
+                                    </button>
+                                ) : (
+                                    <NavLink to="/login" className="nav-link">
+                                        Iniciar Sesión
+                                    </NavLink>
+                                )}
                             </li>
+                          
                         </ul>
+
+
                         <form className="d-flex" role="search">
                             <input
                                 className="form-control me-2"
@@ -82,7 +108,7 @@ export default function Header() {
                         <label className="drop-img" htmlFor="drop-check">
                             <img
                                 className="img-profile"
-                                src={UserLogo}
+                                src={user?.avatar || UserLogo}
                                 alt="profile"
                             />
                         </label>

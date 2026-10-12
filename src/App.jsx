@@ -11,6 +11,8 @@ import Products from './pages/products/Products'
 import ProductDetail from './pages/product-detail/ProductDetail'
 import Login from './pages/login/Login'
 import Layout from './layout/Layout'
+import AdminUsers from './pages/admin/users/AdminUsers'
+import ProtectedAdmin from './components/protectedAdmin/ProtectedAdmin'
 
 
 
@@ -24,7 +26,7 @@ function App() {
 
 
       <Routes>
-      
+
         <Route path='/login' element={<Login />} />
 
         <Route element={<Layout />} >
@@ -36,11 +38,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path='/about' element={<About />} />
-          <Route path="/admin/products" element={<AdminProduct />} />
           <Route path="/register" element={<Register />} />
           <Route path='/products' element={<Products />} />
           <Route path='/product-detail/:id' element={<ProductDetail />} />
+          <Route path='/admin' element={<ProtectedAdmin />}>
+            <Route path='products' element={<AdminProduct />} />
+            <Route path='users' element={<AdminUsers />} />
 
+          </Route>
           <Route path="*" element={<h1> NOT FOUND 404</h1>} />
         </Route>
       </Routes>

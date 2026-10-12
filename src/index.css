@@ -46,6 +46,7 @@ main {
     margin: 0 auto;
     flex: 1;
     max-width: 1200px;
+    width: 100%;
 }
 
 
@@ -107,6 +108,22 @@ main {
     font-size: 20px;
 }
 
+#hero .hero-info {
+    min-width: 0;
+
+}
+
+#hero #hero-img-container {
+    min-width: 0;
+    max-width: 100%;
+
+
+}
+
+#hero-img-container img {
+    max-width: 100%;
+    height: auto;
+}
 
 
 .serv {
@@ -166,16 +183,7 @@ main {
 
 
 
-.contact-header {
-    padding: 20px;
 
-    h1,
-    h2 {
-        font-size: 40px;
-        color: var(--color);
-        text-align: center;
-    }
-}
 
 
 
@@ -302,23 +310,6 @@ main {
 
 
 
-    .contact-body {
-        flex-direction: column;
-    }
-
-    .map {
-        position: relative;
-        padding-bottom: 56.25%;
-        margin-bottom: 15px;
-
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    }
 
     .register-body {
         h1 {
@@ -472,33 +463,7 @@ main {
         white-space: normal;
     }
 
-    .contact-body {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 100vw;
-        overflow: hidden !important;
-        /*se agrego imrpotarnt par quitar scrllbvar en el mapa*/
-        padding: 10px;
-        box-sizing: border-box;
-    }
 
-    .map {
-        width: 100%;
-        max-width: 100%;
-        margin: 20px 0;
-    }
-
-    /* se ajusta el map ebebido para que no cause ovrflw */
-    .map iframe {
-        width: 100%;
-        height: 250px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        width: 100%;
-    }
 }
 
 @media (width < 900px) {

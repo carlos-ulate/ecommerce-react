@@ -1,0 +1,24 @@
+   .error {
+       color: red;
+       font-size: 12px;
+       min-height: 18px;
+       margin: 4px 0;
+   }
+
+   .registro-form .button-container {
+       display: flex;
+       justify-content: center;
+       gap: 1rem;
+   }
+
+   .button-contact:disabled {
+       opacity: 0.6;
+       pointer-events: none;
+       cursor: not-allowed;
+       filter: grayscale(100%)
+   }
+
+   .registro-form{
+    margin-bottom: 25px;
+   }
+   

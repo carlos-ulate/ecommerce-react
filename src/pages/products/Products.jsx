@@ -1,6 +1,5 @@
-import { faEye, faStar } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink } from "react-router";
+import "./Products.css"
+import ProductContainer from "../../components/product-container/ProductContainer";
 
 
 
@@ -189,30 +188,9 @@ export default function Products() {
                     </div>
                 </aside>
                 <section className="product-section product">
-                    <div className=" container">
-                        <div className="card">
-                            <div className="card-image">
-                                <img
-                                    src="./src/assets/images/products/nvidia_5070ti.jpg"
-                                    alt="nvidia_5070ti"
-                                />
-                                <FontAwesomeIcon  className="star-icon" icon={faStar} />
-                                <NavLink
-                                    to="/products/productDetail"
-                                    className="view-more-btn"
-                                    aria-label="Ver más"
-                                >
-                                    <FontAwesomeIcon icon={faEye} />
-                                </NavLink>
-                            </div>
-                            <div className="card-content">
-                                <h3>Tarjeta Grafica</h3>
-                                <p>Asus Tuf GeForce 5070 TI 16GB Gaming</p>
-                                <span className="price">$1000</span>
-                                <button className="add-to-cart">Agregar al carrito</button>
-                            </div>
-                        </div> 
-                    </div>
+
+                    <ProductContainer />
+
                 </section>
             </div>
         </>

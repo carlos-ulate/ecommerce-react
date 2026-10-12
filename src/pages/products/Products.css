@@ -33,6 +33,30 @@ label[for="filtrar"] {
 
 }
 
+.check > input{
+margin-right: 8px;
+     
+}
+
+ .adminEdit{
+        h1{
+            text-align: center;
+        }
+
+        ul{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            list-style-type: none;
+        
+        }
+        li{
+            text-decoration: underline;
+            font-size: larger;
+        }
+    }
+
+
 
 @media (width < 1200px) {
     .product-layout {
@@ -130,7 +154,7 @@ label[for="filtrar"] {
         opacity: 1;
     }
 
-
+   
 }
 
 @media (width < 480px) {

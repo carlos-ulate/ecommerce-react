@@ -28,6 +28,8 @@
 
  .hero-img {
    width: 100%;
+   max-width: 100%;
+   height: auto;
  }
 
  .button-search {
@@ -108,7 +110,7 @@
    }
  }
 
- @media (width <=768px) {
+ @media (width <=1300px) {
    .nav-bar {
      height: auto;
      padding: 10px;

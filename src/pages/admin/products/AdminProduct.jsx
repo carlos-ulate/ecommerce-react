@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import ProductRow from "../../../components/product-row/ProductRow";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router";
 
 const URL_BASE = 'https://6aab23a5ea0e22daa6dbcf5b.mockapi.io'
 
@@ -155,72 +156,86 @@ export default function AdminProduct() {
     }
 
     return (
+        <>
+            <div className="adminEdit">
+                <h1>Administrar</h1>
+                <ul>
+                    <li className="nav-item">
+                        <NavLink to="/admin/users" className="nav-link">
+                            Users
+                        </NavLink></li>
+                    <li>
+                        <NavLink to="/admin/products" className="nav-link">Admin Products</NavLink>
+                    </li>
 
-        <div className="admin-container">
-            <div className="form-container">
+                </ul>
+            </div>
+            <div className="admin-container">
+                <div className="form-container">
 
-                <form className="contact-form  registro-form" onSubmit={handleSubmit(envioFormulario)} noValidate>
-                    <div>
-                        <h2>Agregar Nuevo Producto</h2>
-                    </div>
-                    <label htmlFor="name">Nombre del Producto</label>
-                    <br />
-                    <input
+                    <form className="contact-form  registro-form" onSubmit={handleSubmit(envioFormulario)} noValidate>
+                        <div>
+                            <h2>Agregar Nuevo Producto</h2>
+                        </div>
+                        <label htmlFor="name">Nombre del Producto</label>
+                        <br />
+                        <input
 
-                        type="text"
-                        ref={nameInputRef} // Asignar la referencia al input de nombre
-                        id="name"
-                        {...register("name", { required: "El nombre del producto es obligatorio", minLength: { value: 3, message: "El nombre del producto debe tener al menos 3 caracteres" }, maxLength: { value: 50, message: "El nombre del producto no puede exceder los 50 caracteres" } }
+                            type="text"
+                            ref={nameInputRef} // Asignar la referencia al input de nombre
+                            id="name"
+                            {...register("name", { required: "El nombre del producto es obligatorio", minLength: { value: 3, message: "El nombre del producto debe tener al menos 3 caracteres" }, maxLength: { value: 50, message: "El nombre del producto no puede exceder los 50 caracteres" } }
 
-                        )}
+                            )}
 
-                    />
-                    {errors?.name && <p className="error">{errors.name.message}</p>}
+                        />
+                        {errors?.name && <p className="error">{errors.name.message}</p>}
 
-                    <br />
-                    <label htmlFor="description">Descripcion del Producto</label>
-                    <br />
-                    <textarea id="description" 
+                        <br />
+                        <label htmlFor="description">Descripcion del Producto</label>
+                        <br />
+                        <textarea id="description"
 
-                        {...register("description", { minLength: { value: 10, message: "La descripción del producto debe tener al menos 10 caracteres" }, maxLength: { value: 1000, message: "La descripción del producto no puede exceder los 1000 caracteres" } })}
-
-
-                    />
-                    {errors?.description && <p className="error">{errors.description.message}</p>}
-                    <br />
-                    <label htmlFor="price">Precio</label>
-                    <br />
-                    <input
-
-                        type="number"
-                        id="price"
-                        {...register("price", { valueAsNumber: true, requiered: " Indique el precio del Producto", min: { value: 0, message: "El precio del producto debe ser mayor a $0" } })}
-
-
-                    />
-                    {errors?.price && <p className="error">{errors.price.message}</p>}
-                    <br />
-                    <label htmlFor="desc">Categoria</label><br></br>
-                    <select  {...register("category",)}
-                        id=""
-                    >
+                            {...register("description", { minLength: { value: 10, message: "La descripción del producto debe tener al menos 10 caracteres" }, maxLength: { value: 1000, message: "La descripción del producto no puede exceder los 1000 caracteres" } })}
 
 
-                        <option value="">Selecciona una categoria</option>
-                        <option value="periferico">Headset</option>
-                        <option value="camara">Camara</option>
-                        <option value="periferico">Teclado</option>
-                        <option value="monitor">Monitor</option>
-                        <option value="grafica">Tarjeta Grafica</option>
-                        <option value="periferico">Audifonos</option>
-                        <option value="case">Case</option>
-                        <option value="enfriamiento">Enfriamiento Liquido</option>
-                        <option value="ram">Memoria RAM</option>
-                    </select>
+                        />
+                        {errors?.description && <p className="error">{errors.description.message}</p>}
+                        <br />
+                        <label htmlFor="price">Precio</label>
+                        <br />
+                        <input
 
-                    {/* {errors?.category && <p className="error">{errors.category.message}</p>} */}
-                    <br></br>
-                    {/* <label htmlFor="createdAt">Fecha de Ingreso</label>
+                            type="number"
+                            id="price"
+                            {...register("price", { valueAsNumber: true, requiered: " Indique el precio del Producto", min: { value: 0, message: "El precio del producto debe ser mayor a $0" } })}
+
+
+                        />
+                        {errors?.price && <p className="error">{errors.price.message}</p>}
+                        <br />
+                        <label htmlFor="desc">Categoria</label><br></br>
+                        <select  {...register("category",)}
+                            id=""
+                        >
+
+
+                            <option value="">Selecciona una categoria</option>
+                            <option value="periferico">Headset</option>
+                            <option value="camara">Camara</option>
+                            <option value="periferico">Teclado</option>
+                            <option value="monitor">Monitor</option>
+                            <option value="grafica">Tarjeta Grafica</option>
+                            <option value="periferico">Audifonos</option>
+                            <option value="case">Case</option>
+                            <option value="enfriamiento">Enfriamiento Liquido</option>
+                            <option value="ram">Memoria RAM</option>
+                            <option value="procesador">Procesador</option>
+                        </select>
+
+                        {/* {errors?.category && <p className="error">{errors.category.message}</p>} */}
+                        <br></br>
+                        {/* <label htmlFor="createdAt">Fecha de Ingreso</label>
                     <br />
                     <input
 
@@ -231,91 +246,96 @@ export default function AdminProduct() {
 
                     /> */}
 
-                    <br />
-                    <label htmlFor="image">Cargar Imagen/Producto</label>
-                    <br />
-                    <input
+                        <br />
+                        <label htmlFor="image">Cargar Imagen/Producto</label>
+                        <br />
+                        <input
 
-                        type="url"
-                        {...register("image", { required: "La URL de la imagen es obligatoria", pattern: { value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg|webp))$/i, message: "Ingrese una URL válida de imagen" } })}
-                        id="image"
+                            type="url"
+                            {...register("image", { required: "La URL de la imagen es obligatoria", pattern: { value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg|webp))$/i, message: "Ingrese una URL válida de imagen" } })}
+                            id="image"
 
 
-                    />
-                    {errors?.image && <p className="error">{errors.image.message}</p>}
-                    <br />
-                    <label htmlFor="stock">Stock:</label>
-                    <br />
-                    <input
+                        />
+                        {errors?.image && <p className="error">{errors.image.message}</p>}
+                        <br />
+                        <label htmlFor="stock">Stock:</label>
+                        <br />
+                        <input
 
-                        type="number"
-                        id="stock"
-                        {...register("stock", { valueAsNumber: true, required: "Indique el stock del producto", min: { value: 0, message: "El stock no puede ser negativo" } })}
-                    />
-                    {errors?.stock && <p className="error">{errors.stock.message}</p>}
-                    <br />
+                            type="number"
+                            id="stock"
+                            {...register("stock", { valueAsNumber: true, required: "Indique el stock del producto", min: { value: 0, message: "El stock no puede ser negativo" } })}
+                        />
+                        {errors?.stock && <p className="error">{errors.stock.message}</p>}
+                        <br />
 
-                    <br />
-                    <br />
-                    <div className="button-container">
-                        <button disabled={!isValid} type="submit" className={`button-contact ${editingProductId ? "edit-button" : " "} `} >
-                            {editingProductId ? "Actualizar Producto" : "Agregar Producto"}
-                        </button>
-
-                        {editingProductId && (
-                            <button onClick={() => setEditingProductId(null)} className="cancel-button">
-
-                                <FontAwesomeIcon icon={faX} />
-
+                        <br />
+                        <br />
+                        <div className="button-container">
+                            <button disabled={!isValid} type="submit" className={`button-contact ${editingProductId ? "edit-button" : " "} `} >
+                                {editingProductId ? "Actualizar Producto" : "Agregar Producto"}
                             </button>
-                        )}
+
+                            {editingProductId && (
+                                <button type="button" onClick={() => {
+                                    setEditingProductId(null);
+                                    reset();  
+                                }} className="cancel-button">
+
+                                    <FontAwesomeIcon icon={faX} />
+
+                                </button>
+                            )}
+                        </div>
+                    </form>
+
+
+                </div>
+
+
+                <section>
+                    <div className="table-title">
+                        <h1>Administrador de Productos</h1>
                     </div>
-                </form>
+                    <div className="adm-prod">
+                        <table className="adm-table">
+                            <thead>
+                                <tr>
+                                    <th>Foto</th>
+                                    <th>Nombre</th>
+                                    <th >Descripcion</th>
+                                    <th>Fecha de Ingreso</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th>Agregar o eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
 
+                                {
+
+                                    //se puede usar tambien si en el return   products.map((producto) =><ProductRow key={producto.id} prod={producto} />)
+                                    products.map((producto) => {
+
+                                        return <ProductRow key={producto.id}
+                                            prod={producto}
+                                            handleEdit={handleEdit}
+                                            handleDelete={handleDelete} />
+                                    })
+
+
+                                }
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
             </div>
-
-
-            <section>
-                <div className="table-title">
-                    <h1>Administrador de Productos</h1>
-                </div>
-                <div className="adm-prod">
-                    <table className="adm-table">
-                        <thead>
-                            <tr>
-                                <th>Foto</th>
-                                <th>Nombre</th>
-                                <th >Descripcion</th>
-                                <th>Fecha de Ingreso</th>
-                                <th>Precio</th>
-                                <th>Stock</th>
-                                <th>Agregar o eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-
-                            {
-
-                                //se puede usar tambien si en el return   products.map((producto) =><ProductRow key={producto.id} prod={producto} />)
-                                products.map((producto) => {
-
-                                    return <ProductRow key={producto.id}
-                                        prod={producto}
-                                        handleEdit={handleEdit}
-                                        handleDelete={handleDelete} />
-                                })
-
-
-                            }
-
-
-
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
+        </>
     )
+
 }

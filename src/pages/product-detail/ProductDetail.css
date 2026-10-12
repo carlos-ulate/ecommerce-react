@@ -9,6 +9,12 @@
     }
 
     .det-img {
+        margin-right: 10px;
+
+        img {
+            border-radius: 10px;
+        }
+
         p {
             font-weight: 500;
             font-size: x-large;
@@ -32,13 +38,21 @@
         font-weight: 600;
         border-radius: 12px;
         background: var(--bg-btns);
-    } 
-    
+    }
+
 }
 
-.desc-title{ 
+
+
+.desc-title {
     margin-top: 16px;
     margin-bottom: 6px;
     margin-left: -20px;
     list-style: none;
+}
+
+@media (width < 425px){
+   .detalles .add-to-cart{
+        font-size: 15px;
+    }
 }

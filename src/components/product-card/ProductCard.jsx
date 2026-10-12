@@ -13,7 +13,7 @@ export default function ProductCard({ product }) {
                 />
                 <FontAwesomeIcon className="star-icon" icon={faStar} />
 
-                <Link to={`product-detail/${product.id}`}
+                <Link to={`/product-detail/${product.id}`}
 
                     className="view-more-btn"
                     aria-label="Ver más"

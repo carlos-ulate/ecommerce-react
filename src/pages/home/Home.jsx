@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router";
 import ProductContainer from "../../components/product-container/ProductContainer";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="title">
@@ -91,10 +94,10 @@ export default function Home() {
           </div>
         </section>
         <section className="product-section">
-        
 
 
-         <ProductContainer />
+
+          <ProductContainer />
 
         </section>
 
@@ -119,7 +122,7 @@ export default function Home() {
                 personalizada, grabado láser, cableado trenzado de autor y diseño de
                 sistemas de refrigeración líquida rígida (custom loops).
               </p>
-              <button type="button" className="btn btn-info button-serv">
+              <button type="button" className="btn btn-info button-serv" onClick={() => navigate("/contact")}>
                 Cotizar
               </button>
             </div>
@@ -132,7 +135,7 @@ export default function Home() {
                 overclocking seguro para maximizar los fotogramas por segundo en
                 juegos competitivos.
               </p>
-              <button type="button" className="btn btn-info button-serv">
+              <button type="button" className="btn btn-info button-serv" onClick={() => navigate("/contact")}>
                 Cotizar
               </button>
             </div>
@@ -144,7 +147,7 @@ export default function Home() {
                 cambio de almohadillas térmicas y aplicación de pasta térmica de
                 metal líquido para reducir temperaturas.
               </p>
-              <button type="button" className="btn btn-info button-serv">
+              <button type="button" className="btn btn-info button-serv" onClick={() => navigate("/contact")}>
                 Cotizar
               </button>
             </div>
@@ -157,7 +160,7 @@ export default function Home() {
                 ecualizar el audio del micrófono y sincronizar la iluminación
                 ambiental.
               </p>
-              <button type="button" className="btn btn-info button-serv">
+              <button type="button" className="btn btn-info button-serv" onClick={() => navigate("/contact")}>
                 Cotizar
               </button>
             </div>
@@ -169,7 +172,7 @@ export default function Home() {
                 prioritario 24/7, mantenimiento anual gratuito y acceso exclusivo a
                 preventas de hardware de stock limitado.
               </p>
-              <button type="button" className="btn btn-info button-serv">
+              <button type="button" className="btn btn-info button-serv" onClick={() => navigate("/contact")}>
                 Cotizar
               </button>
             </div>
