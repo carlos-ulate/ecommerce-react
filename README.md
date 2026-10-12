@@ -2,7 +2,8 @@
 
 ## Descripción
 
-**ecommerce-react** es una aplicación web de comercio electrónico desarrollada como una Single Page Application (SPA) con React. El proyecto implementa una arquitectura basada en componentes reutilizables y ofrece una experiencia de usuario fluida, que incluye autenticación de usuarios con persistencia de sesión, validación de formularios y visualización del catálogo de productos.
+**Ecommerce-react** 
+Es una aplicación web de comercio electrónico desarrollada como una Single Page Application (SPA) con React. El proyecto implementa una arquitectura basada en componentes reutilizables y ofrece una experiencia de usuario fluida, que incluye autenticación de usuarios con persistencia de sesión, validación de formularios y visualización del catálogo de productos.
 
 La interfaz cuenta con un diseño responsive, optimizado para dispositivos móviles, tablets y escritorio, y con una identidad visual moderna orientada al sector gaming.
 
