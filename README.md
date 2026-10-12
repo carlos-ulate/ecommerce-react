@@ -1,19 +1,53 @@
-# React + Vite
+# ecommerce-react
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Descripción
 
-Currently, two official plugins are available:
+**ecommerce-react** es una aplicación web de comercio electrónico desarrollada como una Single Page Application (SPA) con React. El proyecto implementa una arquitectura basada en componentes reutilizables y ofrece una experiencia de usuario fluida, que incluye autenticación de usuarios con persistencia de sesión, validación de formularios y visualización del catálogo de productos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+La interfaz cuenta con un diseño responsive, optimizado para dispositivos móviles, tablets y escritorio, y con una identidad visual moderna orientada al sector gaming.
 
-## React Compiler
+## Tecnologías utilizadas
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **React**: construcción de la interfaz mediante componentes.
+- **JavaScript (JS)**: lógica de la aplicación.
+- **HTML5**: estructura de las páginas.
+- **CSS3**: estilos y diseño responsive.
+- **Vite**: herramienta de desarrollo y empaquetado.
+- **Web Storage API (localStorage)**: persistencia de la sesión del usuario.
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## Características principales
 
-## Expanding the Oxlint configuration
+- Autenticación de usuarios (inicio de sesión y registro).
+- Validación de formularios: formato de correo electrónico, longitud mínima de contraseña y campos obligatorios.
+- Persistencia de sesión mediante localStorage.
+- Catálogo de productos con vista detallada.
+- Diseño responsive adaptable a múltiples dispositivos.
+- Navegación fluida sin recargas de página.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Próximas mejoras
+
+- Implementación del carrito de compras.
+- Integración de una pasarela de pago.
+
+## Instalación y uso
+
+1. Clona el repositorio:
+```bash
+   git clone https://github.com/carlos-ulate/ecommerce-react.git
+```
+2. Entra a la carpeta del proyecto:
+```bash
+   cd ecommerce-react
+```
+3. Instala las dependencias:
+```bash
+   npm install
+```
+4. Inicia el servidor de desarrollo:
+```bash
+   npm run dev
+```
+
+## Autor
+
+Carlos Ulate: [@carlos-ulate](https://github.com/carlos-ulate)
