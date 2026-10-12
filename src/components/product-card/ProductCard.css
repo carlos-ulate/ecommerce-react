@@ -116,3 +116,12 @@
     color: white;
     background: var(--bg-btns);
 }
+
+@media (width < 768px) {
+    .card{
+        width: 80%;          
+        max-width: 250px;    
+        margin: 0 auto 20px auto; 
+        box-sizing: border-box
+    }
+}
